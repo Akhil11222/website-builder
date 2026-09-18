@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Website Builder - Ready-to-Launch Business Websites",
-  description: "Select your business website template, book with a 10% token, and get your business website live.",
+  title: "WebsiteBuilder - Ready-to-Launch Business Websites",
+  description: "Select your business website template, book with a 10% token, and get your business website live on your domain.",
 };
 
 export default function RootLayout({
@@ -26,10 +28,12 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white text-neutral-900 selection:bg-neutral-200 selection:text-neutral-900`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#fafafa] text-zinc-900 selection:bg-zinc-200 selection:text-zinc-900 flex flex-col min-h-screen`}
       >
         <Header />
-        {children}
+        <div className="flex-1">{children}</div>
+        <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );
